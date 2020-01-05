@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="409dp"
+        android:layout_height="409dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        android:tag="board"
+        app:columnCount="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rowCount="3">
+
+        <ImageView
+            android:id="@+id/boardImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="gameBoard"
+            app:layout_column="0"
+            app:layout_row="0"
+            app:srcCompat="@drawable/board" />
+
+        <!-- We have not included img src, because we want the image to alternate
+             between two image as per users' turn ;) -->
+
+        <ImageView
+            android:id="@+id/crossImageView00"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="15dp"
+            android:contentDescription="boardElement"
+            android:onClick="clickFunction"
+            android:tag="0"
+            app:layout_column="0"
+            app:layout_row="0" />
+
+        <ImageView
+            android:id="@+id/crossImageView01"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="155dp"
+            android:layout_marginTop="15dp"
+            android:onClick="clickFunction"
+            android:tag="1"
+            app:layout_column="0"
+            app:layout_row="0" />
+
+        <ImageView
+            android:id="@+id/crossImageView02"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="285dp"
+            android:layout_marginTop="15dp"
+            android:onClick="clickFunction"
+            android:tag="2"
+            app:layout_column="0"
+            app:layout_row="0" />
+
+        <ImageView
+            android:id="@+id/crossImageView10"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="155dp"
+            android:onClick="clickFunction"
+            android:tag="3"
+            app:layout_column="0"
+            app:layout_row="0" />
+
+        <ImageView
+            android:id="@+id/crossImageView11"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="155dp"
+            android:layout_marginTop="155dp"
+            android:onClick="clickFunction"
+            android:tag="4"
+            app:layout_column="0"
+            app:layout_row="0" />
+
+        <ImageView
+            android:id="@+id/crossImageView12"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="285dp"
+            android:layout_marginTop="155dp"
+            android:onClick="clickFunction"
+            android:tag="5"
+            app:layout_column="0"
+            app:layout_row="0" />
+
+        <ImageView
+            android:id="@+id/crossImageView20"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="295dp"
+            android:onClick="clickFunction"
+            android:tag="6"
+            app:layout_column="0"
+            app:layout_row="0" />
+
+        <ImageView
+            android:id="@+id/crossImageView21"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="155dp"
+            android:layout_marginTop="295dp"
+            android:clickable="false"
+            android:onClick="clickFunction"
+            android:tag="7"
+            app:layout_column="0"
+            app:layout_row="0" />
+
+        <ImageView
+            android:id="@+id/crossImageView22"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="285dp"
+            android:layout_marginTop="295dp"
+            android:onClick="clickFunction"
+            android:tag="8"
+            app:layout_column="0"
+            app:layout_row="0" />
+
+    </androidx.gridlayout.widget.GridLayout>
+
+    <TextView
+        android:id="@+id/winningTextView"
+        android:layout_width="187dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginLeft="132dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginRight="92dp"
+        android:layout_marginBottom="7dp"
+        android:alpha="0"
+        android:text="Cross won!"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@+id/playAgainButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/playAgainButton"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="155dp"
+        android:layout_marginLeft="155dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="154dp"
+        android:layout_marginRight="154dp"
+        android:layout_marginBottom="32dp"
+        android:onClick="playAgain"
+        android:text="Play Again"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/winningTextView" />
+</androidx.constraintlayout.widget.ConstraintLayout>
